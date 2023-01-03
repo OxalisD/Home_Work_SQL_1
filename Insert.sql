@@ -14,19 +14,19 @@ VALUES ('The Rolling Stones'), ('David Bowie'), ('The Doors'), ('Led Zeppelin'),
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres 
-WHERE genres.name IN ('Психоделический рок', 'Блюз-рок', 'Ритм-н-блюз', 'Рок-н-ролл', 'Кантри') AND artists.name = 'The Rolling Stones';
+WHERE genres.name IN ('Психоделический рок', 'Блюз-Рок', 'Ритм-н-блюз', 'Рок-н-ролл', 'Кантри') AND artists.name = 'The Rolling Stones';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
-WHERE genres.name IN ('Психоделический рок', 'Блюз-рок') AND artists.name = 'The Doors';
+WHERE genres.name IN ('Психоделический рок', 'Блюз-Рок') AND artists.name = 'The Doors';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
-WHERE genres.name IN ('Арт-рок', 'Глэм-рок', 'Альтернативный-рок', 'Соул', 'Хард-рок') AND artists.name = 'David Bowie';
+WHERE genres.name IN ('Арт-рок', 'Глэм-рок', 'Альтернативный рок', 'Соул', 'Хард-рок') AND artists.name = 'David Bowie';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
-WHERE genres.name IN ('Хард-рок', 'Хеви-метал', 'Фолк-рок', 'Блюз-рок') AND artists.name = 'Led Zeppelin';
+WHERE genres.name IN ('Хард-рок', 'Хеви-метал', 'Фолк-рок', 'Блюз-Рок') AND artists.name = 'Led Zeppelin';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
@@ -34,11 +34,11 @@ WHERE genres.name IN ('Прогрессивный рок', 'Арт-рок', 'П�
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
-WHERE genres.name IN ('Индастриал-рок', 'Индастриал-метал', 'Нью-метал', 'Готик-рок', 'Шок-рок') AND artists.name = 'Marilyn Manson';
+WHERE genres.name IN ('Индастриал-рок', 'Индастриал-метал', 'Ню-метал', 'Готик-рок', 'Шок-рок') AND artists.name = 'Marilyn Manson';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
-WHERE genres.name IN ('Индастриал-рок', 'Индастриал-метал', 'Альтернативный-рок', 'Дарк-эмбиент') AND artists.name = 'Nine Inch Nails';
+WHERE genres.name IN ('Индастриал-рок', 'Индастриал-метал', 'Альтернативный рок', 'Дарк-эмбиент') AND artists.name = 'Nine Inch Nails';
 
 INSERT INTO genres_artists 
 SELECT artists.id, genres.id FROM artists, genres
@@ -53,7 +53,39 @@ VALUES ('Some Girls', 1978), ('A Bigger Bang', 2005), ('Tattoo You', 1981), ('St
 ('Station to Station', 1976), ('Young Americans', 1975), ('The Doors', 1967), ('Morrison Hotel', 1970), ('Strange Days', 1967), ('Led Zeppelin III', 1970), 
 ('Led Zeppelin', 1969), ('Physical Graffiti', 1975), ('The Dark Side Of The Moon', 1973), ('Animals', 1977), ('The Wall', 1979), ('The Division Bell', 1994),
 ('Holy Wood', 2000), ('Mechanical Animals', 1998), ('The Golden Age Of Grotesque', 2003), ('Antichrist Superstar', 1996), ('Bad Witch', 2018), 
-('Add Violence', 2017), ('My Generation', 1965), ('The Who Sell Out', 1967), ('Who''s Next', 1971), ('Who Are You', 1978);
+('Add Violence', 2017), ('My Generation', 1965), ('The Who Sell Out', 1967), ('Who''s Next', 1971), ('Who Are You', 1978), ('WE ARE CHAOS', 2020);
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('Some Girls', 'A Bigger Bang', 'Tattoo You', 'Sticky Fingers') and artists.name = 'The Rolling Stones';
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('Diamond Dogs', 'Space Oditty', 'Station to Station', 'Young Americans') and artists.name = 'David Bowie'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('The Doors', 'Morrison Hotel', 'Strange Days') and artists.name = 'The Doors'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('Led Zeppelin III', 'Led Zeppelin', 'Physical Graffiti') and artists.name = 'Led Zeppelin'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('The Dark Side Of The Moon', 'Animals', 'The Wall', 'The Division Bell') and artists.name = 'Pink Floyd'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('Holy Wood', 'Mechanical Animals', 'The Golden Age Of Grotesque', 'Antichrist Superstar', 'WE ARE CHAOS') and artists.name = 'Marilyn Manson'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('Bad Witch', 'Add Violence') and artists.name = 'Nine Inch Nails'; 
+
+insert into artist_albums
+select artists.id, albums.id from artists, albums
+where albums.name in ('My Generation', 'The Who Sell Out', 'Who''s Next', 'Who Are You') and artists.name = 'The Who'; 
 
 INSERT INTO tracks (name, duration, album)
 VALUES ('Miss You', '00:04:48', (select id FROM albums 
@@ -126,6 +158,10 @@ WHERE albums.name = 'Antichrist Superstar')),
 WHERE albums.name = 'Antichrist Superstar')),
 ('Slutgarden', '00:04:06', (select id FROM albums 
 WHERE albums.name = 'The Golden Age Of Grotesque')),
+('WE ARE CHAOS', '00:04:00', (select id from albums 
+where albums.name = 'WE ARE CHAOS')),
+('PERFUME', '00:03:33', (select id from albums 
+where albums.name = 'WE ARE CHAOS')),
 ('Shit Mirror', '00:03:06', (select id FROM albums 
 WHERE albums.name = 'Bad Witch')),
 ('Over and Out', '00:07:49', (select id FROM albums 
